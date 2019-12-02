@@ -3,12 +3,12 @@ use std::fs;
 fn main() {
     let input = fs::read_to_string("src/02/input.txt").expect("error reading input");
 
-    println!("part 1: {}", intcode(&input, (12, 2))); //2692315
+    println!("part 1: {}", intcode(&input, (12, 2))); // 2692315
 
     let mut params: (usize, usize) = (0, 0);
     let mut output: usize = 0;
     loop {
-        output = intcode(&input, params);
+        output = intcode(&input, params); // brute force like a boss
         if output == 19690720 {
             break;
         }
@@ -21,8 +21,8 @@ fn main() {
             _ => panic!("wtf?"),
         }
     }
-    
-    println!("part 2: {}", (100 * params.0) + params.1);
+
+    println!("part 2: {}", (100 * params.0) + params.1); // 9507
 }
 
 fn intcode(input: &String, params: (usize, usize)) -> usize {
