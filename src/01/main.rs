@@ -1,7 +1,7 @@
 use std::fs;
 
 fn main() {
-    let input = fs::read_to_string("input.txt").expect("error reading input");
+    let input = fs::read_to_string("src/01/input.txt").expect("error reading input");
 
     let sum: f32 = input.lines().map(|v| fuel(v.parse().unwrap())).sum();
     println!("Answer for part one: {}", sum); // 3317970
