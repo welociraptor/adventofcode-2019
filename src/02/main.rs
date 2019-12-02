@@ -6,18 +6,15 @@ fn main() {
     println!("part 1: {}", intcode(&input, (12, 2))); // 2692315
 
     let mut params: (usize, usize) = (0, 0);
-    let mut output: usize = 0;
+    let mut output: usize;
     loop {
         output = intcode(&input, params); // brute force like a boss
         if output == 19690720 {
             break;
         }
-        match params {
-            (a, b) if a < 99 && b < 99 => params.0 += 1,
-            (a, _) if a == 99 => {
-                params.0 = 0;
-                params.1 += 1
-            }
+        params = match params {
+            (a, b) if a < 99 && b < 99 => (a + 1, b),
+            (99, b) => (0, b + 1),
             _ => panic!("wtf?"),
         }
     }
