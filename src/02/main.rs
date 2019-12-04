@@ -31,9 +31,7 @@ fn intcode(input: &String, params: (usize, usize)) -> usize {
 
     let mut i = 0;
     while i < program.len() {
-        let op1 = program[i + 1];
-        let op2 = program[i + 2];
-        let target = program[i + 3];
+        let (op1, op2, target) = (program[i + 1], program[i + 2], program[i + 3]);
         match program[i] {
             1 => program[target] = program[op1] + program[op2],
             2 => program[target] = program[op1] * program[op2],
