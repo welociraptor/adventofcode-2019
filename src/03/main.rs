@@ -20,7 +20,8 @@ fn main() {
     );
     */
 
-    println!( // Solution to part two.
+    println!(
+        // Solution to part two.
         "{}",
         Wire::intersections(&wire0, &wire1)
             .iter()
