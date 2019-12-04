@@ -42,5 +42,5 @@ fn intcode(input: &String, params: (usize, usize)) -> usize {
         }
         i += 4;
     }
-    return program[0]
+    return program[0];
 }
