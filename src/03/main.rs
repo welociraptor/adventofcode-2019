@@ -115,47 +115,16 @@ impl Wire {
         let mut location: Point = (0, 0);
         let mut total = 0;
         for instruction in self.path.iter() {
-            let mut leg = 0;
-            match instruction.0 {
-                Direction::UP => {
-                    while leg < instruction.1 {
-                        total += 1;
-                        location.1 += 1;
-                        leg += 1;
-                        if location == p {
-                            return total;
-                        }
-                    }
+            for n in 1..=instruction.1 {
+                total += 1;
+                match instruction.0 {
+                    Direction::UP => location.1 += 1,
+                    Direction::DOWN => location.1 -= 1,
+                    Direction::LEFT => location.0 -= 1,
+                    Direction:: RIGHT => location.0 += 1,
                 }
-                Direction::DOWN => {
-                    while leg < instruction.1 {
-                        location.1 -= 1;
-                        total += 1;
-                        leg += 1;
-                        if location == p {
-                            return total;
-                        }
-                    }
-                }
-                Direction::LEFT => {
-                    while leg < instruction.1 {
-                        location.0 -= 1;
-                        total += 1;
-                        leg += 1;
-                        if location == p {
-                            return total;
-                        }
-                    }
-                }
-                Direction::RIGHT => {
-                    while leg < instruction.1 {
-                        location.0 += 1;
-                        total += 1;
-                        leg += 1;
-                        if location == p {
-                            return total;
-                        }
-                    }
+                if location == p {
+                    return total;
                 }
             }
         }
