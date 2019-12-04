@@ -11,14 +11,10 @@ fn main() {
     let wire0 = Wire::new(data[0]);
     let wire1 = Wire::new(data[1]);
 
-    /* Solution to part one. I'm too tired to fix the nearest_intersection function to not have the
-       borrow checker scream at me in part two.
-
     println!(
         "nearest crossing: {}",
-        Wire::nearest_intersection(wire0, wire1)
+        Wire::nearest_intersection(&wire0, &wire1)
     );
-    */
 
     println!(
         // Solution to part two.
@@ -102,7 +98,7 @@ impl Wire {
         }
         points
     }
-    fn nearest_intersection(wire1: Wire, wire2: Wire) -> i32 {
+    fn nearest_intersection(wire1: &Wire, wire2: &Wire) -> i32 {
         let mut shortest = std::i32::MAX;
         for p in wire1.points().intersection(&wire2.points()) {
             let dist = p.0.abs() + p.1.abs();
