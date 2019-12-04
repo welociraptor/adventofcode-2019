@@ -15,6 +15,7 @@ fn main() {
         "nearest crossing: {}",
         Wire::nearest_intersection(&wire0, &wire1)
     );
+    // 399
 
     println!(
         // Solution to part two.
@@ -24,7 +25,7 @@ fn main() {
             .map(|p| wire0.distance_to(*p) + wire1.distance_to(*p))
             .min()
             .unwrap()
-    )
+    ) // 15678
 }
 
 enum Direction {
@@ -99,14 +100,7 @@ impl Wire {
         points
     }
     fn nearest_intersection(wire1: &Wire, wire2: &Wire) -> i32 {
-        let mut shortest = std::i32::MAX;
-        for p in wire1.points().intersection(&wire2.points()) {
-            let dist = p.0.abs() + p.1.abs();
-            if dist < shortest {
-                shortest = dist;
-            }
-        }
-        shortest
+        Wire::intersections(wire1, wire2).iter().map(|p| p.0.abs() + p.1.abs()).min().unwrap()
     }
 
     fn intersections(wire1: &Wire, wire2: &Wire) -> Vec<Point> {
