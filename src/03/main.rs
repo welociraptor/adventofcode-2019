@@ -167,14 +167,14 @@ impl Wire {
 fn test_part1_example1() {
     let wire1 = Wire::new("R75,D30,R83,U83,L12,D49,R71,U7,L72");
     let wire2 = Wire::new("U62,R66,U55,R34,D71,R55,D58,R83");
-    assert_eq!(159, Wire::nearest_intersection(wire1, wire2));
+    assert_eq!(159, Wire::nearest_intersection(&wire1, &wire2));
 }
 
 #[test]
 fn test_part1_example2() {
     let wire1 = Wire::new("R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51");
     let wire2 = Wire::new("U98,R91,D20,R16,D67,R40,U7,R15,U6,R7");
-    assert_eq!(135, Wire::nearest_intersection(wire1, wire2));
+    assert_eq!(135, Wire::nearest_intersection(&wire1, &wire2));
 }
 
 #[test]
