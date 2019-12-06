@@ -44,7 +44,7 @@ fn to_array(x: i32) -> [i32; 6] {
     let mut result = [0; 6];
 
     for n in 0..=5 {
-        result[n] = x % 10_i32.pow(6-n as u32) / 10_i32.pow(5-n as u32);
+        result[n] = x % 10_i32.pow(6 - n as u32) / 10_i32.pow(5 - n as u32);
     }
 
     result
@@ -82,4 +82,3 @@ fn test_part2() {
         assert_eq!(t.1, validate_part2(t.0), "{} should be {}", t.1, t.0);
     }
 }
-

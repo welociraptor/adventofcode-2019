@@ -100,7 +100,11 @@ impl Wire {
         points
     }
     fn nearest_intersection(wire1: &Wire, wire2: &Wire) -> i32 {
-        Wire::intersections(wire1, wire2).iter().map(|p| p.0.abs() + p.1.abs()).min().unwrap()
+        Wire::intersections(wire1, wire2)
+            .iter()
+            .map(|p| p.0.abs() + p.1.abs())
+            .min()
+            .unwrap()
     }
 
     fn intersections(wire1: &Wire, wire2: &Wire) -> Vec<Point> {
@@ -121,7 +125,7 @@ impl Wire {
                     Direction::UP => location.1 += 1,
                     Direction::DOWN => location.1 -= 1,
                     Direction::LEFT => location.0 -= 1,
-                    Direction:: RIGHT => location.0 += 1,
+                    Direction::RIGHT => location.0 += 1,
                 }
                 if location == p {
                     return total;
