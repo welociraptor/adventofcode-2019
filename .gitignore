@@ -1,6 +1,6 @@
 **/*.iml
 **/target/
-
+.idea
 
 #Added by cargo
 #
